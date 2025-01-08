@@ -214,10 +214,89 @@ header{
 }
 
 
+/* operations */
+.operations{
+  width: min(1100px, 90%);
+  background-color: #fff;
+  margin: 0 auto;
+  border-radius: 10px;
+  border: 2px solid var(--color-primary-darker);
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4em;
+  padding: 3em;
+}
+
+.operations__tab-container{
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.section--sign-up{
+  background:  #37383d;
+  text-align: center;
+  padding: 8em 0;
+  border-bottom: 1px solid #444;
+}
+.signup{
+  width: min(700px, 90%);
+  margin: 0 auto;
+
+}
+.signup__header{
+  font-size: 2.5rem;
+  color: #f3f3f3;
+
+}
+.section--sign-up .btn{
+  font-size: 2rem;
+}
+
+.footer{
+  background-color: #37383d;
+  padding: 8em 0;
+  text-align: center;
+  /* margin: 0 auto; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer__nav{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+.footer__link{
+  color: #eee;
+  font-size: 1.5rem;
+}
+.footer__logo{
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  margin-top: 4rem;
+  height: 5rem;
+
+}
+.footer__copyright{
+  color: #aaa;
+  font-size: 1.5rem;
+}
+
+
+
+
 /*FROM MOBILE SIZE */
 @media(max-width: 544px){
   .features{
     grid-template-columns: 1fr;
+  }
+  .section--sign-up .btn{
+    font-size: 1.5rem;
   }
 }
 
@@ -330,6 +409,11 @@ header{
 
   .hero__title {
     font-size: 6.2rem;
+  }
+  .signup__header{
+    font-size: 3.5rem;
+   
+  
   }
   
 }
