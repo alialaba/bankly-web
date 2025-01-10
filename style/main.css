@@ -233,6 +233,16 @@ header{
   flex-direction: column;
   
 }
+.operations__content{
+  display: none;
+}
+
+.operations__content{
+  display: none;
+}
+.operations__content--active{
+  display: block;
+}
 
 .section--sign-up{
   background:  #37383d;
