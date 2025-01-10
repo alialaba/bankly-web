@@ -63,3 +63,18 @@ clicked.classList.add("operations__tab--active")
 let contentEl = document.querySelector(`.operations__content--${clicked.dataset.tab}`);
 contentEl.classList.add("operations__content--active")
 })
+
+//Fade Animation
+function handleHover(e){
+    if(e.target.classList.contains("nav__link")){
+        const link = e.target;
+        const linkSiblings = link.closest(".nav__list").querySelectorAll(".nav__link");
+        linkSiblings.forEach(linkSibling =>{
+         if(linkSibling !== link) linkSibling.style.opacity = this;
+        })
+ 
+     }
+}
+document.querySelector(".nav__list").addEventListener("mouseover", handleHover.bind(0.5) )
+
+document.querySelector(".nav__list").addEventListener("mouseout", handleHover.bind(1))
