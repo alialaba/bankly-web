@@ -9,7 +9,9 @@ const section1 = document.querySelector("#section--1");
 const tabs = document.querySelectorAll(".operations__tab");
 const tabsContainer = document.querySelector(".operations__tab-container")
 const  tabsContent = document.querySelectorAll(".operations__content");
+const header = document.querySelector(".header");
 
+const navHeight = nav.getBoundingClientRect().height;
 
 //Mobile Navigation  Toggle Interaction
 mobileNavToggle.addEventListener("click", ()=>{
@@ -78,3 +80,23 @@ function handleHover(e){
 document.querySelector(".nav__list").addEventListener("mouseover", handleHover.bind(0.5) )
 
 document.querySelector(".nav__list").addEventListener("mouseout", handleHover.bind(1))
+
+
+//    
+const stickyNav = function (entries){
+ const [entry] = entries;
+ console.log(entry)
+
+ if (!entry.isIntersecting) {
+    nav.classList.add("sticky");
+ } else {
+    nav.classList.remove("sticky");
+ } 
+}
+
+const headerObserver = new IntersectionObserver(stickyNav, {
+    root: null,
+    threshold: 0,
+    rootMargin: `-${navHeight}px`
+});
+headerObserver.observe(header)
