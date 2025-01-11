@@ -6,6 +6,8 @@ const nav = document.querySelector(".nav");
 const btnScroll = document.querySelector(".btn--scroll-to");
 const section1 = document.querySelector("#section--1");
 
+const allSection = document.querySelectorAll("section")
+
 const tabs = document.querySelectorAll(".operations__tab");
 const tabsContainer = document.querySelector(".operations__tab-container")
 const  tabsContent = document.querySelectorAll(".operations__content");
@@ -83,10 +85,9 @@ document.querySelector(".nav__list").addEventListener("mouseover", handleHover.b
 document.querySelector(".nav__list").addEventListener("mouseout", handleHover.bind(1))
 
 
-//    
+//sticky navigation
 const stickyNav = function (entries){
  const [entry] = entries;
- console.log(entry)
 
  if (!entry.isIntersecting) {
     header.classList.add("sticky");
@@ -101,3 +102,27 @@ const heroSectionObserver = new IntersectionObserver(stickyNav, {
     rootMargin: `-${navHeight}px`
 });
 heroSectionObserver.observe(heroSection)
+
+
+
+//Reveal Elements on scrolling
+const revealSection = function (entries, observer){
+  
+    entries.forEach((entry)=>{
+        if(!entry.isIntersecting) return ;
+        entry.target.classList.remove("section-hidden");
+        observer.unobserve(entry.target)
+    })
+  
+
+}
+
+const sectionObserver = new IntersectionObserver(revealSection, {
+    root: null,
+    threshold: 0.015  
+});
+
+allSection.forEach(section=>{
+    sectionObserver.observe(section);
+    section.classList.add("section-hidden");  
+})

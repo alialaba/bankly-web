@@ -581,6 +581,10 @@ transition: transform 1s;
     z-index: 999;
   }
 
+.section-hidden{
+  opacity: 0;
+  transform: translateY(8rem);
+}
 @media (max-width:768px){
   .display-sm-none{
     display: none;
