@@ -10,6 +10,7 @@ const tabs = document.querySelectorAll(".operations__tab");
 const tabsContainer = document.querySelector(".operations__tab-container")
 const  tabsContent = document.querySelectorAll(".operations__content");
 const header = document.querySelector(".header");
+const heroSection = document.querySelector(".section-hero");
 
 const navHeight = nav.getBoundingClientRect().height;
 
@@ -88,15 +89,15 @@ const stickyNav = function (entries){
  console.log(entry)
 
  if (!entry.isIntersecting) {
-    nav.classList.add("sticky");
+    header.classList.add("sticky");
  } else {
-    nav.classList.remove("sticky");
+    header.classList.remove("sticky");
  } 
 }
 
-const headerObserver = new IntersectionObserver(stickyNav, {
+const heroSectionObserver = new IntersectionObserver(stickyNav, {
     root: null,
     threshold: 0,
     rootMargin: `-${navHeight}px`
 });
-headerObserver.observe(header)
+heroSectionObserver.observe(heroSection)
