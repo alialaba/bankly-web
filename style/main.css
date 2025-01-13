@@ -585,6 +585,9 @@ transition: transform 1s;
   opacity: 0;
   transform: translateY(8rem);
 }
+.lazy-img{
+  filter: blur(20px);
+}
 @media (max-width:768px){
   .display-sm-none{
     display: none;
