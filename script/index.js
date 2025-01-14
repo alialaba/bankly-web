@@ -134,7 +134,6 @@ console.log(imgTargets)
 
 const loadingImg =  function(entries, observer){
  const [entry] = entries;
- console.log(entry)
  if(!entry.isIntersecting) return;
 
  //Replace image with data-src
@@ -153,3 +152,47 @@ const imgObserver = new IntersectionObserver(loadingImg, {
     rootMargin: "200px"
 })
 imgTargets.forEach(img=> imgObserver.observe(img) )
+
+
+//sliders
+const slider = document.querySelector(".slider")
+const slides = document.querySelectorAll(".slide");
+const btnLeft = document.querySelector(".slider__btn--left");
+const btnRight = document.querySelector(".slider__btn--right");
+
+let curSlide = 0
+let maxSlides = slides.length;
+
+// slider.style.transform = `scale(0.2) translateX(100px)`
+slider.style.overflow =`hidden`
+
+// slides.forEach((slide, i)=>{
+//     //  0% 100% 200%
+//    let n = slide.style.transform = `translateX(${100 * i}%)`;
+//    console.log(n)
+// })
+
+const goToSlide = function (curSlide) {
+    slides.forEach((slide, i)=>{
+        // -100% 0% 100% 200% => -200% -100% 0%
+         slide.style.transform = `translateX(${100 * (i - curSlide)}%)`;
+       
+         
+    })
+}
+
+goToSlide(0)
+
+const nextSlide = function () {
+    curSlide == (maxSlides - 1) ? curSlide = 0 : curSlide++
+    goToSlide(curSlide)
+}
+
+const previousSlide = function() {
+    curSlide == 0  ? curSlide = (maxSlides - 1) : curSlide--
+    goToSlide(curSlide) 
+}
+
+btnRight.addEventListener("click", nextSlide);
+btnLeft.addEventListener("click", previousSlide);
+
